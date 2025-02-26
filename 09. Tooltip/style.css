@@ -52,3 +52,9 @@
     visibility: visible;
     opacity: 1;
   }
+
+  #check {
+    transform: translateX(-50%);
+    border: 15px solid;
+    border-color: #000 #0000 #0000 #0000;
+  }
