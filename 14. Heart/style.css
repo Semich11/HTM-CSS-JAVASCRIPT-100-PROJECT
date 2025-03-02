@@ -1,43 +1,99 @@
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
   
+  :root {
+    --main-color: #dc143c;
+  }
+  
   body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    font-family: sans-serif;
-    background: #000;
-    color: #fff;
+    background: rgb(7, 7, 20);
   }
   
-  .content {
-    padding: 4rem;
+  /* gray-heart */
+  .gray-heart {
+    background: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: 0;
+    transform: rotate(-45deg);
   }
   
-  section {
-    border: 2px solid white;
-    margin: 20px 0;
-    padding: 20px;
+  .gray-heart:before,
+  .gray-heart:after {
+    content: "";
+    background: #ccc;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    position: absolute;
   }
   
-  section h1 {
-    margin: 10px 0;
+  .gray-heart:before {
+    top: -50px;
+    left: 0;
   }
   
-  .scroll-indicator {
-    height: 5px;
-    width: calc(100% - 6em);
-    position: fixed;
-    top: 10px;
-    left: 3em;
-    border-radius: 3px;
+  .gray-heart:after {
+    left: 50px;
+    top: 0;
   }
   
-  .scroll-indicator .progress {
-    height: 100%;
-    width: 0;
-    border-radius: 3px;
-    /* https://www.grabient.com/ */
-    background: linear-gradient(30deg, #21d4fd, #b721ff);
-    transition: width 0.1s;
+  /* red-heart */
+  .red-heart {
+    background: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+    transform: rotate(-45deg);
+    position: absolute;
+    visibility: hidden;
+  }
+  
+  .red-heart:before,
+  .red-heart:after {
+    content: "";
+    background: var(--main-color);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+  }
+  
+  .red-heart:before {
+    top: -50px;
+    left: 0;
+  }
+  
+  .red-heart:after {
+    left: 50px;
+    top: 0;
+  }
+  
+  .red-heart.animation {
+    animation: pop 0.9s linear;
+    visibility: visible;
+  }
+  
+  .red-heart.fill-color {
+    background: var(--main-color);
+  }
+  
+  @keyframes pop {
+    100% {
+      transform: scale(1.7) rotate(-45deg);
+      opacity: 0;
+    }
   }
